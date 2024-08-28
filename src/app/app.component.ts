@@ -1,10 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+
+import { CartService } from './cart/cart.service';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'swv-root',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'reusable-components-w-ngtemplateoutlet';
+  pageTitle = 'Star Wars Vehicle Store';
+  cartService = inject(CartService);
+
+  cartCount = computed(() => this.cartService.cartItems().reduce(
+    (acc, item) => acc + item.quantity, 0));
+
 }

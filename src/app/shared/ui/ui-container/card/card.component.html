@@ -1,9 +1,0 @@
-<div class="cards-wrapper">
-    <ng-container *ngIf="items.length > 0; else noResult">
-        <div *ngFor="let item of items" class="card-item" (click)="onCardClick(item)" [class.active]="item === activeItem">
-            <ng-container [ngTemplateOutlet]="cardRef" [ngTemplateOutletContext]="{data: item}"></ng-container>
-        </div>
-    </ng-container>
-
-    <ng-template #noResult>No results were found.</ng-template>
-</div>

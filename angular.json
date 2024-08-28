@@ -3,34 +3,29 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "reusable-components-w-ngtemplateoutlet": {
+    "swVehicles": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "swv",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/reusable-components-w-ngtemplateoutlet",
+            "outputPath": "dist/sw-vehicles",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -51,12 +46,9 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -65,10 +57,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "reusable-components-w-ngtemplateoutlet:build:production"
+              "buildTarget": "swVehicles:build:production"
             },
             "development": {
-              "browserTarget": "reusable-components-w-ngtemplateoutlet:build:development"
+              "buildTarget": "swVehicles:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +68,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "reusable-components-w-ngtemplateoutlet:build"
+            "buildTarget": "swVehicles:build"
           }
         },
         "test": {
@@ -87,13 +79,12 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -102,6 +93,6 @@
     }
   },
   "cli": {
-    "analytics": "c789e75b-a95f-405c-b68e-68b1b589b350"
+    "analytics": "8bfb79be-1022-484c-bc5c-17141f983b33"
   }
 }
