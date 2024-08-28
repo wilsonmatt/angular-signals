@@ -1,0 +1,49 @@
+<app-ui-container
+  [data]="todosListService.todos()"
+  [listRef]="listRef"
+  [cardRef]="cardRef"
+  [tableRowRef]="tableRowRef"
+></app-ui-container>
+
+<!-- LIST VIEW -->
+<ng-template #listRef let-todos="data">
+  <div *ngIf="todos.length > 0; else noResult" class="list-wrapper">
+    <app-list-todo-item
+      *ngFor="let todo of todos"
+      [todoItem]="todo"
+      (edit)="onTodoEdit($event)"
+      (delete)="onTodoDelete($event)"
+    ></app-list-todo-item>
+  </div>
+  <ng-template #noResult>No results were found.</ng-template>
+</ng-template>
+
+<!-- CARD VIEW -->
+<ng-template #cardRef let-todo="data">
+  <app-card-todo-item
+    [todoItem]="todo"
+    (edit)="onTodoEdit($event)"
+    (delete)="onTodoDelete($event)"
+  ></app-card-todo-item>
+</ng-template>
+
+<!-- TABLE VIEW -->
+<ng-template #tableRowRef let-todo="data">
+  <tr
+    app-table-todo-item
+    (delete)="onTodoDelete($event)"
+    (edit)="onTodoEdit($event)"
+    [todoItem]="todo"
+  ></tr>
+</ng-template>
+
+<app-add-todo *ngIf="!editMode"></app-add-todo>
+
+<button (click)="toggleEditMode()" *ngIf="editMode" class="toggle-button">
+  Add New Item
+</button>
+
+<app-edit-todo
+  *ngIf="editMode && currentTodo"
+  [todo]="currentTodo"
+></app-edit-todo>

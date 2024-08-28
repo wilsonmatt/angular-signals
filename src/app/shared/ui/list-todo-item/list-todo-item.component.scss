@@ -1,0 +1,47 @@
+.list-item {
+    border-bottom: 1px solid #4b5563;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .list-item:last-child {
+    border-bottom: none;
+  }
+  
+  .list-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .list-item .edit-btn,
+  .list-item .delete-btn {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .list-item .edit-btn:hover,
+  .list-item .delete-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .list-item .edit-btn:focus,
+  .list-item .delete-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px orange;
+  }
+  
+  .list-item .edit-btn {
+    border: 1px solid orange;
+  }
+  
+  .list-item .delete-btn {
+    border: 1px solid red;
+    margin-left: 1rem;
+  }

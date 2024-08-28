@@ -1,0 +1,23 @@
+.cards-wrapper {
+    display: grid;
+    grid: 1fr / repeat(auto-fit, minmax(200px, auto));
+    gap: 1rem;
+
+  }
+  
+  .card-item {
+    background-color: #1f2937;
+    color: #fff;
+    border: 1px solid #4b5563;
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+    :hover {
+      background-color: #4a5568;
+      cursor: pointer;
+    }
+  }
+
+  .active {
+    border: 2px solid orange;
+  }

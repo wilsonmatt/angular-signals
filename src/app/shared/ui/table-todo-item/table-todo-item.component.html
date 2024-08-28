@@ -1,0 +1,6 @@
+        <td>{{todoItem.id}}</td>
+        <td>{{todoItem.title}}</td>
+        <td>{{todoItem.description}}</td>
+        <td><button class="edit-btn" (click)="edit.emit(todoItem)">Edit</button></td>
+        <td><button class="delete-btn" (click)="delete.emit(todoItem.id)">Delete</button></td>
+

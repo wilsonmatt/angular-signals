@@ -1,0 +1,84 @@
+/* Add application styles & imports to this file! */
+
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+$my-primary: mat.define-palette(mat.$indigo-palette, 500);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+    ),
+  )
+);
+
+// Emit theme-dependent styles for common features used across multiple components.
+@include mat.core-theme($my-theme);
+
+// Emit styles for MatButton based on `$my-theme`. Because the configuration
+// passed to `define-light-theme` omits typography, `button-theme` will not
+// emit any typography styles.
+@include mat.button-theme($my-theme);
+@include mat.card-theme($my-theme);
+
+tr:hover {
+  background-color: #4a5568;
+  cursor: pointer;
+}
+.mt-1 {
+  margin-top: 16px;
+}
+
+.mb-1 {
+  margin-bottom: 16px;
+}
+
+.edit-btn,
+.delete-btn {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.edit-btn:focus,
+.delete-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px aqua;
+}
+
+.delete-btn {
+  border: 1px solid red;
+  margin-left: 1rem;
+}
+
+.edit-btn {
+  border: 1px solid orange;
+}
+
+.layout-btn {
+  border: none;
+  border-radius: 50px;
+}
+
+.toggle-button {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 5px;
+  background-color: #1f2937;
+  color: #fff;
+  border: 4px solid purple;
+}

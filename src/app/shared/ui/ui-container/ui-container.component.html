@@ -1,0 +1,46 @@
+<div class="layout-selection mb-1">
+  <button
+    [ngClass]="{ active: viewMode === 'list' }"
+    [disabled]="viewMode === 'list'"
+    (click)="switchViewMode('list')"
+    class="layout-btn"
+    mat-icon-button
+    matTooltip="List View"
+  >
+    <mat-icon>list</mat-icon>
+  </button>
+
+  <button
+    [ngClass]="{ active: viewMode === 'table' }"
+    [disabled]="viewMode === 'table'"
+    (click)="switchViewMode('table')"
+    class="layout-btn my-primary"
+    mat-icon-button
+    matTooltip="Table View"
+  >
+    <mat-icon>table</mat-icon>
+  </button>
+
+  <button
+    [ngClass]="{ active: viewMode === 'card' }"
+    [disabled]="viewMode === 'card'"
+    (click)="switchViewMode('card')"
+    class="layout-btn"
+    mat-icon-button
+    matTooltip="Column View"
+  >
+    <mat-icon>view_column</mat-icon>
+  </button>
+</div>
+
+<div *ngIf="viewMode === 'list'" class="mt-1">
+  <app-list [items]="data" [listRef]="listRef"></app-list>
+</div>
+
+<div *ngIf="viewMode === 'card'" class="mt-1">
+  <app-card [items]="data" [cardRef]="cardRef"></app-card>
+</div>
+
+<div *ngIf="viewMode === 'table'" class="mt-1">
+  <app-table [items]="data" [tableRowRef]="tableRowRef"></app-table>
+</div>

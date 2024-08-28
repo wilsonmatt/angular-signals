@@ -1,0 +1,12 @@
+<ng-container>
+    <div class="header">
+        <span><strong>{{todoItem.title}}</strong></span> 
+    </div>
+    <div class="body">
+        <span>{{todoItem.description}}</span>
+    </div>
+    <div class="actions">
+        <button class="edit-btn" (click)="edit.emit(todoItem!)">Edit</button>
+        <button class="delete-btn" (click)="delete.emit(todoItem.id!)">Delete</button>
+    </div>
+</ng-container>
